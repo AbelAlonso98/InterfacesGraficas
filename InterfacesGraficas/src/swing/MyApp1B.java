@@ -2,7 +2,7 @@ package swing;
 
 import javax.swing.SwingUtilities;
 
-public class MyApp2 {
+public class MyApp1B {
 	public void run() {
 		// Invoked on the event dispatching thread.
 		// Construct and show GUI.

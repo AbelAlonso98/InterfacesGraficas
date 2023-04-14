@@ -2,7 +2,7 @@ package swing;
 
 import javax.swing.SwingUtilities;
 
-public class MyApp4 {
+public class MyApp1D {
 
 
 	public static void main(String[] args) {

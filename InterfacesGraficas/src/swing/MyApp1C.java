@@ -2,7 +2,7 @@ package swing;
 
 import javax.swing.SwingUtilities;
 
-public class MyApp3 {
+public class MyApp1C {
 
 	public void run() {
 		// Invoked on the event dispatching thread.
@@ -12,7 +12,7 @@ public class MyApp3 {
 	}
 
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new MyApp3()::run);
+		SwingUtilities.invokeLater(new MyApp1C()::run);
 	}
 
 }
