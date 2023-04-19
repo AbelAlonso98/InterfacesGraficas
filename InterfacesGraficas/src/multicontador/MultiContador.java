@@ -1,4 +1,4 @@
-package tarea1;
+package multicontador;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -6,11 +6,16 @@ import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+
 
 //No deberiamos hacerlo asi
 
 public class MyApp3D extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	MyApp3D() {
 		super("MyApp");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

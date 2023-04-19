@@ -11,6 +11,11 @@ import javax.swing.SwingUtilities;
 //No deberiamos hacerlo asi
 
 public class MyApp3B extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	MyApp3B() {
 		super("MyApp");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
