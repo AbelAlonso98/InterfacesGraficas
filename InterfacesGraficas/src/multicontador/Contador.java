@@ -35,10 +35,9 @@ public class Contador extends JPanel implements ActionListener {
 	private void inicializar() {
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraints = new GridBagConstraints();
-		constraints.fill = GridBagConstraints.BOTH;
-		
 		constraints.gridx = 0;
 		constraints.gridy = 0;
+		constraints.fill = GridBagConstraints.HORIZONTAL;
 		add(crearBoton("RESET", Recursos.resetIcon, color), constraints);
 		texto = new JTextField("0", 5);
 		texto.setHorizontalAlignment(JTextField.CENTER);

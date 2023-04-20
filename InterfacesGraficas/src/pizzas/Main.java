@@ -187,19 +187,19 @@ public class Main extends JFrame {
 				botonesMasa.clearSelection();
 				botonesIngredientes.stream().forEach(b -> b.setSelected(false));
 			} else if (!algunaTamaño) {
-				JOptionPane.showMessageDialog(null, "No ha seleccionado ningún tamaño.", "Pedido",
+				JOptionPane.showMessageDialog(this, "No ha seleccionado ningún tamaño.", "Pedido",
 						JOptionPane.ERROR_MESSAGE);
 
 			} else if (!algunIngrediente) {
-				JOptionPane.showMessageDialog(null, "No ha seleccionado ningún ingrediente.", "Pedido",
+				JOptionPane.showMessageDialog(this, "No ha seleccionado ningún ingrediente.", "Pedido",
 						JOptionPane.ERROR_MESSAGE);
 
 			} else if (!algunaMasa) {
-				JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna masa.", "Pedido",
+				JOptionPane.showMessageDialog(this, "No ha seleccionado ninguna masa.", "Pedido",
 						JOptionPane.ERROR_MESSAGE);
 
 			} else if (!algunTipoPedido) {
-				JOptionPane.showMessageDialog(null, "Seleccione local o recoger.", "Pedido", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "Seleccione local o recoger.", "Pedido", JOptionPane.ERROR_MESSAGE);
 
 			}
 
