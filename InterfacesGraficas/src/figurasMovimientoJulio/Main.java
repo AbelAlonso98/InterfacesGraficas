@@ -1,4 +1,4 @@
-package figurasJulio;
+package figurasMovimientoJulio;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -34,16 +34,8 @@ public class Main extends JFrame implements KeyListener, WindowListener {
 		stage.start(this);
 	}
 
-
-
 	public static void main(final String[] args) throws IOException {
 		SwingUtilities.invokeLater(() -> new Main(args).start());
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -56,6 +48,13 @@ public class Main extends JFrame implements KeyListener, WindowListener {
 			dispose();
 			System.exit(0);
 			break;
+		case KeyEvent.VK_LEFT:
+			stage.figura.decLados();
+			break;
+			
+		case KeyEvent.VK_RIGHT:
+			stage.figura.incLados();
+			break;
 		}
 	}
 
@@ -64,13 +63,15 @@ public class Main extends JFrame implements KeyListener, WindowListener {
 	}
 
 	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
 	public void windowOpened(WindowEvent e) {
 	}
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-
-
 	}
 
 	@Override
@@ -79,7 +80,7 @@ public class Main extends JFrame implements KeyListener, WindowListener {
 
 	@Override
 	public void windowIconified(WindowEvent e) {
-}
+	}
 
 	@Override
 	public void windowDeiconified(WindowEvent e) {
@@ -91,7 +92,5 @@ public class Main extends JFrame implements KeyListener, WindowListener {
 
 	@Override
 	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 }

@@ -1,17 +1,20 @@
-package figurasJulio;
+package figurasMovimientoJulio;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.Stroke;
 import java.awt.Toolkit;
+import java.awt.geom.Line2D;
+import java.awt.geom.Line2D.Double;
+import java.awt.geom.Path2D;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
 public class Stage {
-
-	private Figura figura;
+	Figura figura;
 	private boolean paused;
 	private Thread t;
 	private volatile boolean running;
@@ -19,11 +22,9 @@ public class Stage {
 	private double width;
 	private double height;
 	private double floorY;
-	private BasicStroke pincel;
 	private double scale;
-	private Figura figura2 = new Figura(this, 300, 300, 100, 5, 17.313, 0, Color.GREEN);
-	
-
+	private Stroke pincel;
+	private Double floor;
 
 	public synchronized void togglePause() {
 		if (paused) {
@@ -40,12 +41,14 @@ public class Stage {
 	public void start(JFrame frame) {
 		this.frame = frame;
 		width = 57.931;
-		scale = frame.getWidth()/width;
+		scale = frame.getWidth() / width;
 		pincel = new BasicStroke(1.0f / (float) scale);
-		height = frame.getHeight()/scale;
-		floorY = height/2;
-		double radius = 3.579/2;
-		double x = width/2;
+		height = frame.getHeight() / scale;
+		floorY = height / 2;
+		floor = new Line2D.Double(0, floorY, width, floorY);
+
+		double radius = 3.579 / 2;
+		double x = width / 2;
 		double y = floorY - radius;
 		figura = new Figura(this, x, y, radius, 5, 17.313, 0, Color.CYAN);
 		(t = new Thread(this::loop)).start();
@@ -93,18 +96,18 @@ public class Stage {
 		figura.move(lapse);
 	}
 
-	private void render() {
+	
+	public void render() {
 		BufferStrategy bufferStrategy = frame.getBufferStrategy();
 		Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, frame.getWidth(), frame.getHeight());
-		figura2.paint(g);
 		g.setStroke(pincel);
 		g.scale(scale, scale);
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		figura.paint(g);
 		g.setColor(Color.ORANGE);
-		g.drawLine(0, (int)floorY, (int)width, (int)floorY);
+		g.draw(floor);
 		g.dispose();
 		bufferStrategy.show();
 		Toolkit.getDefaultToolkit().sync();
@@ -117,6 +120,7 @@ public class Stage {
 	public double getHeight() {
 		return height;
 	}
+	
 
 
 }
